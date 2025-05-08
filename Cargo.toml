@@ -1,0 +1,36 @@
+[package]
+name = "nullifiers"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+ark-ff = { version = "^0.4.1", default-features = false }
+ark-ec = { version = "^0.4.1", default-features = false }
+ark-std = { version = "^0.4.0", default-features = false, features = ["std"] }
+ark-bls12-381 = { version = "^0.4.0", default-features = false, features = [ "curve" ] }
+rayon = { version = "1.5" }
+
+[dev-dependencies]
+ark-bls12-381 = { version = "^0.4.0", default-features = false, features = ["curve"] }
+criterion = "0.5.1"
+ark-ed25519 = { version = "^0.4.0", default-features = false }
+ark-secp256r1 = { version = "^0.4.0", default-features = false }
+ark-secp256k1 = { version = "^0.4.0", default-features = false }
+
+
+[features]
+
+[[bench]]
+name = "bls12_381"
+harness = false
+
+[[bench]]
+name = "secp256k1"
+harness = false
+
+[[bench]]
+name = "ed25519"
+harness = false
